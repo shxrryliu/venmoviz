@@ -1,19 +1,11 @@
-from friends import G
+from one_friend import social_network_graph
 import networkx as nx
-import matplotlib.pyplot as plt
 
-# for user in users:
-    # print(f"Username: {user.username}, First Name: {user.first_name}, Last Name: {user.last_name}")
-    # G.add_node(user.username, first_name=user.first_name, last_name=user.last_name)
-    # G.add_edge(starting_user, user)
-    
-
-
-# Draw the graph
-pos = nx.spring_layout(G)  # positions for all nodes
-nx.draw_networkx_nodes(G, pos, node_size=700)
-nx.draw_networkx_edges(G, pos, width=1)
-nx.draw_networkx_labels(G, pos, font_size=12, font_family='sans-serif')
-
-plt.axis('off')  # Turn off the axis
-plt.show()  # Display the graph
+# Output statistics about the graph
+print("Number of nodes:", social_network_graph.number_of_nodes())
+print("Number of edges:", social_network_graph.number_of_edges())
+print("Average degree of connectivity:", sum(dict(social_network_graph.degree()).values()) / float(social_network_graph.number_of_nodes()))
+# print("Density:", nx.density(social_network_graph))
+# print("Centrality:", nx.degree_centrality(social_network_graph))
+# print("Betweeness Centrality:", nx.betweenness_centrality(social_network_graph))
+# print("Closeness centrality:", nx.closeness_centrality(social_network_graph))

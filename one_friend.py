@@ -6,6 +6,8 @@
 # client = Client(access_token=access_token)
 
 import time
+
+import scipy
 from tokens import client
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -55,10 +57,13 @@ def crawl_friends_with_priority(client, starting_users, max_depth):
 # Parameters
 max_friends_per_user = 5  # Not used directly in this snippet, but can be used to limit API responses
 crawl_depth = 2
-starting_users = ['Barbara-Lee-107', 'Malia-Ann', 'Valerie-Jarrett-2', 'Lisa-Jackson-251']
+starting_users = ['Valerie-Jarrett-2']
 
 # Begin crawling from the starting users
 social_network_graph = crawl_friends_with_priority(client, starting_users, crawl_depth)
+
+# print("Number of nodes:", social_network_graph.number_of_nodes())
+# print("Number of edges:", social_network_graph.number_of_edges())
 
 # Draw the graph
 pos = nx.spring_layout(social_network_graph)
